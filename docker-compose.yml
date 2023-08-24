@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:13.3
+    container_name: sumo-db-local
+    restart: always
+    environment:
+      POSTGRES_USER: sumo
+      POSTGRES_PASSWORD: sumo
+      POSTGRES_DB: sumo
+    ports:
+      - "5433:5432"
+    volumes:
+      - sumo-db:/var/lib/postgresql/data  # docker volume create sumo-db
+
+volumes:
+  sumo-db:
+
